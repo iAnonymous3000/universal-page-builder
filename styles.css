@@ -397,6 +397,7 @@ svg rect {
 
 /* Theme settings panel - CSS only */
 .settings {
+    display: none; /* Hide the settings panel */
     position: fixed;
     bottom: 20px;
     right: 20px;
