@@ -7,8 +7,7 @@ A modern, accessible landing page template with dark mode, SEO optimization, and
 ## ✨ Features
 
 - **🚫 No JavaScript Required**: Full functionality using pure HTML and CSS
-- **🌗 Dark Mode Support**: Automatic dark mode via CSS media queries and manual toggle with CSS-only controls
-- **🎨 High Contrast Mode**: Additional accessibility option with pure CSS implementation
+- **🌗 Dark Mode Support**: Dark mode enabled by default, with automatic system preference detection
 - **♿ Fully Accessible**: WCAG 2.1 AA compliant with keyboard navigation and semantic HTML
 - **🔒 100% Privacy-Respecting**: No client-side scripts means no tracking possibilities
 - **🔍 SEO Optimized**: Built-in meta tags and structured data
@@ -45,11 +44,12 @@ The template uses CSS variables for easy color customization. Edit these in the 
 
 ```css
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --text-primary: #333333;
-    --text-secondary: #666666;
-    --accent-color: #4a6cf7;
+    /* Dark mode by default */
+    --bg-primary: #121212;
+    --bg-secondary: #1e1e1e;
+    --text-primary: #f0f0f0;
+    --text-secondary: #b0b0b0;
+    --accent-color: #738bff;
     /* ...more variables... */
 }
 ```
@@ -67,19 +67,22 @@ Replace the placeholder content in `index.html` with your own:
 
 This template implements advanced features without JavaScript:
 
-### Dark Mode Toggle
+### Dark Mode
 
-Uses CSS-only techniques:
-```html
-<!-- Radio inputs at top of document -->
-<input type="radio" id="theme-auto" name="theme" value="auto" checked class="theme-control">
-<input type="radio" id="theme-light" name="theme" value="light" class="theme-control">
-<input type="radio" id="theme-dark" name="theme" value="dark" class="theme-control">
-
-<!-- CSS selector targets all following siblings -->
-#theme-dark:checked ~ * {
+The template uses dark mode by default and responds to system preferences:
+```css
+/* Dark mode by default */
+:root {
     --bg-primary: #121212;
     /* Other dark mode variables... */
+}
+
+/* Light mode using media query (if needed) */
+@media (prefers-color-scheme: light) {
+    :root {
+        --bg-primary: #ffffff;
+        /* Other light mode variables... */
+    }
 }
 ```
 
@@ -99,10 +102,6 @@ Implements the hamburger menu using CSS `:checked` pseudo-class:
 }
 ```
 
-### High Contrast Mode
-
-Similar to dark mode, uses radio buttons at document root with CSS selectors.
-
 ## 📋 Accessibility Features
 
 This template follows WCAG 2.1 AA guidelines and includes:
@@ -114,10 +113,9 @@ This template follows WCAG 2.1 AA guidelines and includes:
 - Focus indicators
 - Color contrast compliance
 - Reduced motion support
-- High contrast mode
 - ARIA attributes where needed
 
-See [ACCESSIBILITY.md](ACCESSIBILITY.md) for more details.
+See [ACCESSIBILITY.md](https://github.com/iAnonymous3000/universal-page-builder/blob/main/ACCESSIBILITY.md) for more details.
 
 ## 🔒 Privacy Features
 
@@ -129,7 +127,7 @@ This template provides maximum privacy:
 - No local storage or client-side state
 - No possibility of XSS attacks via JavaScript
 
-See [PRIVACY.md](PRIVACY.md) for more details on our privacy-first approach.
+See [PRIVACY.md](https://github.com/iAnonymous3000/universal-page-builder/blob/main/PRIVACY.md) for more details on our privacy-first approach.
 
 
 ## 📄 License
